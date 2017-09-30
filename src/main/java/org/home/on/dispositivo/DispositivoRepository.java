@@ -1,4 +1,8 @@
 package org.home.on.dispositivo;
 
-public class DispositivoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DispositivoRepository extends JpaRepository<DispositivoEntity, Long> {
+
+
 }

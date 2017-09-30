@@ -1,4 +1,8 @@
 package org.home.on.comodo;
 
-public class ComodoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ComodoRepository extends JpaRepository<ComodoEntity, Long> {
+
+
 }
