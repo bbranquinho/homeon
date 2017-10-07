@@ -15,7 +15,8 @@ import java.util.List;
 public class UserEntity extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 201602010251L;
-    @Id
+
+	@Id
     @GeneratedValue
     private Long id;
 
