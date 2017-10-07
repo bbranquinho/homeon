@@ -1,0 +1,13 @@
+# APPLICATION
+spring:
+  application:
+    name: Home On
+    description: Projeto desenvolvido pelos alunos da Faculdade UNA de Uberlândia, sob orientação do professor @bbranquinho.
+    version: 0.0.1-TEST
+  profiles:
+    active: test
+
+# SERVER
+server:
+  contextPath: /
+  port: 8080
