@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_comodo")
@@ -18,34 +17,33 @@ public class ComodoEntity extends BaseEntity<Long> {
 
 
     @NotNull
-    @Size(min = 4, max = 120)
     @Column(name = "nome", length = 120, nullable = false)
-    private int nome;
+    private String nome;
 
     @NotNull
     @Column(name = "modulos_presentes", length = 120, nullable = false)
-    private int modulos_presentes;
+    private String modulos_presentes;
 
-    public int getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(int nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public int getModulos_presentes() {
+    public String getModulos_presentes() {
         return modulos_presentes;
     }
 
-    public void setModulos_presentes(int modulos_presentes) {
+    public void setModulos_presentes(String modulos_presentes) {
         this.modulos_presentes = modulos_presentes;
     }
 
     public ComodoEntity() {
     }
 
-    public ComodoEntity(int nome, int modulos_presentes) {
+    public ComodoEntity(String nome, String modulos_presentes) {
         this.nome = nome;
         this.modulos_presentes = modulos_presentes;
     }

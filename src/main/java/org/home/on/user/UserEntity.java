@@ -16,10 +16,6 @@ public class UserEntity extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 201602010251L;
 
-	@Id
-    @GeneratedValue
-    private Long id;
-
 	@NotNull
 	@Size(min = 4, max = 120)
 	@Column(name = "name", length = 120, nullable = false)
@@ -45,10 +41,6 @@ public class UserEntity extends BaseEntity<Long> {
 	public UserEntity() {
 	}
 
-	public UserEntity(Long id) {
-		this.setId(id);
-	}
-
     public UserEntity(String name, String email, String password) {
     	super();
 		this.name = name;
@@ -56,7 +48,12 @@ public class UserEntity extends BaseEntity<Long> {
 		this.password = password;
     }
 
-    public UserEntity(String name) {
+	@Override
+	public Long getId() {
+		return super.getId();
+	}
+
+	public UserEntity(String name) {
         this.name = name;
     }
 

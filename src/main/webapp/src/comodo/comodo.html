@@ -1,7 +1,6 @@
 
     <div class="container">
       <div class="jumbotron">
-          <button type="button" class="btn btn-primary" ng-hide="showAddEditComodo" ng-click="show()"  style="left: 300px;"> Novo Comodo</button>
           <div class="content" ng-hide="!showAddEditComodo">
                 <div class="container-fluid">
                     <div class="row">
@@ -14,35 +13,28 @@
                                 <div class="card-content">
                                     <form ng-submit="saveComodo(comodo)">
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                           <div class="form-group label-floating">
                             <label class="control-label">Nome</label>
                             <input type="text" class="form-control" ng-model="comodo.cidade">
                           </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                           <div class="form-group label-floating">
-                            <label class="control-label">Modulos</label>
+                            <label class="control-label">Modulos Presentes</label>
                             <input type="text" class="form-control" ng-model="comodo.bairro">
-                          </div>
-                                            </div>
-                                            <div class="col-md-4">
-                          <div class="form-group label-floating">
-                            <label class="control-label">Id Residencia</label>
-                            <input type="email" class="form-control" >
                           </div>
                                             </div>
                                         </div>
 
 
-                                        <button type="submit" class="btn btn-default" >Salvar</button>
+                                        <button type="submit" class="btn btn-success" >Salvar</button>
                                         <button type="button" class="btn btn-danger" ng-click="hide()">Cancelar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -59,29 +51,23 @@
                 <div class="card-content table-responsive">
                             <table class="table table-hover">
                                 <thead class="text-warning">
-                                    <th>Cidade</th>
-                                  <th>Bairro</th>
-                                  <th>Rua</th>
-                                  <th>Uf</th>
-                                  <th>Quantidade de Moradores</th>
+                                  <th>Nome</th>
+                                  <th>Modulos Presentes</th>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                      <td>Prata</td>
-                                      <td>Oliveira</td>
-                                      <td>Rua sao paulo</td>
-                                      <td>MG</td>
-                                      <td>2</td>
+                                      <td>Sala</td>
+                                      <td>Tv</td>
                                     </tr>
 
                                 </tbody>
                             </table>
+
                         </div>
             </div>
+              <button type="button" class="btn btn-primary" ng-hide="showAddEditComodo" ng-click="show()"> Novo Comodo</button>
           </div>
           </div>
       </div>
-
-
     </div>
   </div>

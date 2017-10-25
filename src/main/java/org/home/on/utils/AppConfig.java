@@ -30,7 +30,7 @@ public class AppConfig {
     private String appVersion;
 
     @Bean
-    public Docket newsApi() {
+    public Docket   newsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()

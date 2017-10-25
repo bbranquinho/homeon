@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_residencia")
@@ -18,24 +17,23 @@ public class ResidenciaEntity extends BaseEntity<Long> {
 
 
     @NotNull
-    @Size(min = 4, max = 120)
-    @Column(name = "qtd_morador", length = 120, nullable = false)
-    private int qtd_morador;
+    @Column(name = "qtdmorador", length = 120, nullable = false)
+    private int qtdmorador;
 
 
 
     public ResidenciaEntity() {
     }
 
-    public ResidenciaEntity(int qtd_morador) {
-        this.qtd_morador = qtd_morador;
+    public ResidenciaEntity(int qtdmorador) {
+        this.qtdmorador = qtdmorador;
     }
 
-    public int getQtd_morador() {
-        return qtd_morador;
+    public int getQtdmorador() {
+        return qtdmorador;
     }
 
-    public void setQtd_morador(int qtd_morador) {
-        this.qtd_morador = qtd_morador;
+    public void setQtdmorador(int qtdmorador) {
+        this.qtdmorador = qtdmorador;
     }
 }

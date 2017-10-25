@@ -30,5 +30,8 @@ public class ResidenciaRepositoryTest extends AbstractTest {
             LOGGER.info("Test FindAll(): " + rsd);
         }
     }
+
+
+    //-------------------Create a User--------------------------------------------------------
 }
 

@@ -59,14 +59,14 @@ $scope.saveUser = function(user) {
     };
     
     // Request all data (permission and user).
-    var permissionUrl = SERVICE_PATH.PRIVATE_PATH + '/permission';
+     var permissionUrl = SERVICE_PATH.PRIVATE_PATH + '/permission';
 
-    RestSrv.find(permissionUrl, function(data) {
-    	scope.permissions = data;
+    //RestSrv.find(permissionUrl, function(data) {
+    //	scope.permissions = data;
 
-  RestSrv.find(url, function(data) {
+  RestSrv.find(userUrl, function(data) {
     $scope.users = data;
     ngNotify.set('Loaded users with success.', 'success');
   		});
-    });
+    //});
   });
