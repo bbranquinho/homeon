@@ -18,35 +18,38 @@ public class DispositivoEntity extends BaseEntity<Long> {
 
 
     @NotNull
-    @Size(min = 4, max = 120)
-    @Column(name = "funcao", length = 120, nullable = false)
-    private int funcao;
+    @Size(min = 2, max = 45)
+    @Column(name = "funcao", length = 45, nullable = false)
+    private String funcao;
 
     @NotNull
-    @Column(name = "estado", length = 120, nullable = false)
-    private int estado;
+    @Column(name = "estado", length = 255, nullable = false)
+    private String estado;
+
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public DispositivoEntity(String funcao, String estado) {
+        this.funcao = funcao;
+        this.estado = estado;
+    }
 
     public DispositivoEntity() {
     }
 
-    public DispositivoEntity(int funcao, int estado) {
-        this.funcao = funcao;
-        this.estado = estado;
-    }
 
-    public int getFuncao() {
-        return funcao;
-    }
-
-    public void setFuncao(int funcao) {
-        this.funcao = funcao;
-    }
-
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
-        this.estado = estado;
-    }
 }

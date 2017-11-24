@@ -33,6 +33,7 @@ public class UserEntity extends BaseEntity<Long> {
 	@Column(name = "password", length = 80, nullable = false)
 	private String password;
 
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_permission", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "permission_id") )
 	private List<PermissionEntity> permissions;
@@ -48,10 +49,6 @@ public class UserEntity extends BaseEntity<Long> {
 		this.password = password;
     }
 
-	@Override
-	public Long getId() {
-		return super.getId();
-	}
 
 	public UserEntity(String name) {
         this.name = name;

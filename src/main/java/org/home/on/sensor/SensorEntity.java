@@ -18,8 +18,8 @@ public class SensorEntity extends BaseEntity<Long> {
 
 
     @NotNull
-    @Size(min = 4, max = 120)
-    @Column(name = "nome", length = 120, nullable = false)
+    @Size(min = 4, max = 45)
+    @Column(name = "nome", length = 45, nullable = false)
     private String nome;
 
     @NotNull
@@ -27,13 +27,13 @@ public class SensorEntity extends BaseEntity<Long> {
     private String descricao;
 
     @NotNull
-    @Column(name = "estado", length = 10, nullable = false)
-    private char estado;
+    @Column(name = "estado_sensor", length = 10, nullable = false)
+    private String estado;
 
     public SensorEntity() {
     }
 
-    public SensorEntity(String nome, String descricao, char estado) {
+    public SensorEntity(String nome, String descricao, String estado) {
         this.nome = nome;
         this.descricao = descricao;
         this.estado = estado;
@@ -55,11 +55,11 @@ public class SensorEntity extends BaseEntity<Long> {
         this.descricao = descricao;
     }
 
-    public char getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(char estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }

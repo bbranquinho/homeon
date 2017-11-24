@@ -1,7 +1,7 @@
 
     <div class="container">
       <div class="jumbotron">
-          <div class="content">
+          <div class="content" ng-hide="!showAddEditRsd">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8">
@@ -58,20 +58,42 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="#696969">
+                              <h4 class="title">Residencia  </h4>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                  <th>Cidade</th>
+                                  <th>Bairro</th>
+                                  <th>Rua</th>
+                                  <th>Uf</th>
+                                  <th>Quantidade de moradores</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="rsd in rsds">
+                                        <td>{{rsd.cidade}}</td>
+                                        <td>{{rsd.bairro}}</td>
+                                        <td>{{rsd.rua}}</td>
+                                        <td>{{rsd.uf}}</td>
+                                        <td>{{rsd.qtdmorador}}</td>
+                                        <td><button ng-click="editRsd(rsd)">Edit</button></td>
+                                        <td><button ng-click="deleteRsd(rsd)">Delete</button></td>
+                                    </tr>
+
+                            </tbody>
+                            </table>
+
+                      </div>
+                    </div>
+                          <button type="button" class="btn btn-primary" ng-hide="showAddEditRsd" ng-click="show()"> Nova Residencia</button>
+                  </div>
+                </div>
+              </div>
     </div>
-
-        <div>
-            <table>
-
-                <tbody>
-                <tr ng-repeat="rsd in rsds">
-                    <td>
-                        <div ng-repeat="permission in user.permissions">{{ permission.role | formatPermission}}</div>
-                    </td>
-                    <td><button ng-click="editRsd(rsd)">Edit</button></td>
-                    <td><button ng-click="deleteRsd(rsd)">Delete</button></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-  </div>
+</div>

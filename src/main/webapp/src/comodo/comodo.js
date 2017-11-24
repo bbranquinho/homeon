@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('homeon')
-  .controller('comodoCtrl', function($scope, $http, RestSrv){
-    var ComodoUrl ="http://localhost:8080/api/private/comodo";
+  .controller('comodoCtrl', function($scope, ngNotify, $http, RestSrv, SERVICE_PATH){
+    var ComodoUrl = SERVICE_PATH.PRIVATE_PATH + '/comodo';
 
     $scope.comodo = {};
     $scope.comodos = [];
@@ -16,15 +16,6 @@ angular.module('homeon')
       $scope.showAddEditComodo = false;
       $scope.comodo = {};
     };
-
-    var permissionUrl = 'http://localhost:8080/api/private/permission';
-
-    RestSrv.find(permissionUrl, function(data){
-      $scope.permissions = data;
-      RestSrv.find(ComodoUrl, function(data){
-        $scope.comodos = data;
-      });
-    });
 
     $scope.editComodo = function(comodo){
       $scope.comodo = angular.copy(comodo);

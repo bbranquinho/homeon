@@ -54,8 +54,12 @@
 
 			<tbody>
 			<tr ng-repeat="user in users">
+				<td>{{user.name}}</td>
+				<br /><td>{{user.email}}</td>
 				<td>
-					<div ng-repeat="permission in user.permissions">{{ permission.role | formatPermission}}</div>
+					<div ng-repeat="user in users">
+						{{ permission.role | formatPermission}}
+					</div>
 				</td>
 				<td><button ng-click="editUser(user)">Edit</button></td>
 				<td><button ng-click="deleteUser(user)">Delete</button></td>

@@ -10,18 +10,18 @@
                                 <h4 class="title">Dispositivos</h4>
                             </div>
                             <div class="card-content">
-                                <form ng-submit="saveComodo(comodo)">
+                                <form ng-submit="saveDsptv(dsptv)">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Funçao</label>
-                                                <input type="text" class="form-control" ng-model="comodo.cidade">
+                                                <input type="text" class="form-control" ng-model="dsptv.funcao">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Estado</label>
-                                                <input type="text" class="form-control" ng-model="comodo.bairro">
+                                                <input type="text" class="form-control" ng-model="dsptv.estado">
                                             </div>
                                         </div>
                                     </div>
@@ -54,15 +54,12 @@
                                 <th>Estado</th>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Tv</td>
-                                    <td>Desativado</td>
-                                </tr>
-                                <tr>
-                                    <td>Som</td>
-                                    <td>Ativado</td>
-                                </tr>
-
+                                  <tr ng-repeat="dsptv in dsptvs">
+                                      <td>{{dsptv.funcao}}</td>
+                                      <td>{{dsptv.estado}}</td>
+                                      <td><button ng-click="editDsptv(dsptv)">Edit</button></td>
+                                      <td><button ng-click="deleteDsptv(dsptv)">Delete</button></td>
+                                  </tr>
                                 </tbody>
                             </table>
 

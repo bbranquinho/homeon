@@ -21,13 +21,13 @@
                                             <div class="col-md-4">
                           <div class="form-group label-floating">
                             <label class="control-label">Descricao</label>
-                            <input type="text" class="form-control" ng-model="sensor.descicao">
+                            <input type="text" class="form-control" ng-model="sensor.descricao">
                           </div>
                                             </div>
                                             <div class="col-md-4">
                           <div class="form-group label-floating">
                             <label class="control-label">Estado</label>
-                            <input type="email" class="form-control" ng-model="sensor.estado">
+                            <input type="text" class="form-control" ng-model="sensor.estado">
                           </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                   <div class="col-lg-8 col-md-12">
                       <div class="card">
                           <div class="card-header" data-background-color="#696969">
-                              <h4 class="title">Comodo  </h4>
+                              <h4 class="title">Sensor </h4>
                           </div>
                           <div class="card-content table-responsive">
                               <table class="table table-hover">
@@ -58,15 +58,15 @@
                                   <th>Estado</th>
                                   </thead>
                                   <tbody>
-                                  <tr>
-                                      <td>Sensor Presença</td>
-                                      <td>Sensor Frente1</td>
-                                      <td>Ativo</td>
-                                  </tr>
-
-                                  </tbody>
-                              </table>
-
+                                    <tr ng-repeat="sensor in sensores">
+                                      <td>{{sensor.nome}}</td>
+                                      <td>{{sensor.descricao}}</td>
+                                      <td>{{sensor.estado}}</td>
+                                      <td><button ng-click="editSensor(sensor)">Edit</button></td>
+                                      <td><button ng-click="deleteSensor(sensor)">Delete</button></td>
+                                    </tr>
+                              </tbody>
+                            </table>
                           </div>
                       </div>
                       <button type="button" class="btn btn-primary" ng-hide="showAddEditSensor" ng-click="show()"> Novo Sensor</button>
