@@ -3,13 +3,22 @@
       <div class="row">
         <div class="col-md-12">
           <div class="jumbotron" >
-            <img src="../img/1.png" alt="" style="widht:400px; height:500px;">
+            <img src="../img/1.png" alt="" style="widht:300px; height:400px;">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-
+          <div class="turn">
+            <div class="turnOn">
+              <img src="../img/aciona.png" alt="">
+              <h6>Ligar modo viage</h6>
+            </div>
+            <div class="turnOff">
+              <img src="../img/off.png" alt="">
+              <h6>Desligar modo viage</h6>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -17,14 +26,36 @@
 
 
 <style media="screen">
-  .jumbotron{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    background-color: white;
-  }
+body {
+	overflow: hidden;
+}
+.jumbotron{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-color: white;
+  padding: 0.6rem 0;
+}
+.turn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.turnOn{
+  padding-right: 6rem;
+}
+.turnOn img{
+  width: 4rem;
+  height: 4rem;
+}
+.turnOff img{
+  width: 4rem;
+  height: 4rem;
+}
 
 
 
