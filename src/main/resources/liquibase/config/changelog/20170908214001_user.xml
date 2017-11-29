@@ -27,7 +27,7 @@
 			<column name="pk_id" value="1" />
 			<column name="email" value="admin@admin.com" />
 			<column name="name" value="Administrador" />
-			<column name="password" value="9fe76e18dd29100230680fa6c812e26c4da4b3cf48a85850910e6f4400a6b3ff9ec05190c175f592" />
+			<column name="password" value="admin" />
 		</insert>
 	</changeSet>
 

@@ -48,7 +48,7 @@ angular.module('homeon', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies',
       controller: 'chamadoCtrl'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/login'
     });    
   })
   .config(function($httpProvider) {

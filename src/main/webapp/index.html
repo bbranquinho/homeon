@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' >
   </head>
 
-  <body>
+  <body style="padding-top:55px;">
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -57,8 +57,15 @@
 
         </div>
       </nav>
-
-
+        <div id="saida" style="
+            display:flex;
+            flex-direction:row;
+            align-items: center;
+            justify-content: center;
+            height:2rem;
+            color:green;
+        "></div>
+    <div id="servo"></div>
       <!-- Main -->
       <div id="main">
         <!-- Post -->
@@ -67,12 +74,48 @@
         </article>
       </div>
 
- </div>
+    </div>
 
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
+    <script type="text/javascript">
+  var websocket;
+
+  function init() {//cria nova conexao com websocket
+	websocket = new WebSocket("ws://localhost:8081/websocket");
+
+    //conectar websocket a exentos
+    websocket.onmessage = function(evt) { onMessage(evt); }//trata evento de receber mensagem
+    websocket.onopen = function(evt) { onOpen(evt); }//
+    websocket.onclose = function(evt) { onClose(evt); }//tratar quando conxeçao for fechada
+  }
+
+  function onMessage(evt) {
+    document.getElementById("servo").innerHTML = "Servo: " + evt.data;
+  }
+
+  function onOpen(evt) {
+    document.getElementById("saida").innerHTML = "Conectado";
+    console.log('ola');
+  }
+
+  function onClose(evt) {
+    document.getElementById("saida").innerHTML = "Desconectado";
+  }
+
+  function ligarLed() {
+    websocket.send("l");
+  }
+
+  function desligarLed() {
+    websocket.send("d");
+  }
+
+  window.addEventListener("load", init, false);
+</script>
+
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="bootstrap4/assets/js/vendor/jquery.min.js"><\/script>')</script>

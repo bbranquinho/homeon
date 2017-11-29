@@ -1,5 +1,5 @@
 
-    <div class="container">
+<div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="jumbotron" >
@@ -10,20 +10,31 @@
       <div class="row">
         <div class="col-md-12">
           <div class="turn">
-            <div class="turnOn">
+          <a href="" onclick="ligarLed();" value="Ligar LED"> <div class="turnOn">
               <img src="../img/aciona.png" alt="">
-              <h6>Ligar modo viage</h6>
+              <h6>Ligar modo viagem</h6>
             </div>
-            <div class="turnOff">
+          </a>
+          <a href="" onclick="desligarLed();" value="Desligar LED"> <div class="turnOff">
               <img src="../img/off.png" alt="">
-              <h6>Desligar modo viage</h6>
+              <h6>Desligar modo viagem</h6>
             </div>
+          </a>
           </div>
         </div>
       </div>
 
     </div>
 
+
+    <div class="dados" style="margin-bottom:5rem;">
+
+
+      <input onclick="ligarLed();" type="button" value="Ligar LED"> <br />
+      <input onclick="desligarLed();" type="button" value="Desligar LED">	<br />
+      <div id="saida"></div>
+      <div id="servo"></div>
+    </div>
 
 <style media="screen">
 body {
@@ -48,9 +59,15 @@ body {
 .turnOn{
   padding-right: 6rem;
 }
+.turnOn h6{
+  color: green;
+}
 .turnOn img{
   width: 4rem;
   height: 4rem;
+}
+.turnOff h6{
+  color: red;
 }
 .turnOff img{
   width: 4rem;
