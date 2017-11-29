@@ -1,7 +1,6 @@
 
     <div class="container">
       <div class="jumbotron">
-          <button type="button" class="btn btn-primary" ng-hide="showAddEditComodo" ng-click="show()"  style="left: 300px;"> Novo Comodo</button>
           <div class="content" ng-hide="!showAddEditComodo">
                 <div class="container-fluid">
                     <div class="row">
@@ -9,40 +8,31 @@
                             <div class="card">
                                 <div class="card-header" data-background-color="#696969">
                                     <h4 class="title">Comodo</h4>
-                    <p class="category">Complete your profile</p>
+                                    <p class="category">Complete your profile</p>
                                 </div>
                                 <div class="card-content">
                                     <form ng-submit="saveComodo(comodo)">
                                         <div class="row">
-                                            <div class="col-md-5">
-                          <div class="form-group label-floating">
-                            <label class="control-label">Nome</label>
-                            <input type="text" class="form-control" ng-model="comodo.cidade">
-                          </div>
+                                            <div class="col-md-6">
+                                             <div class="form-group label-floating">
+                                                <label class="control-label">Nome</label>
+                                                <input type="text" class="form-control" ng-model="comodo.nome">
+                                              </div>
                                             </div>
-                                            <div class="col-md-3">
-                          <div class="form-group label-floating">
-                            <label class="control-label">Modulos</label>
-                            <input type="text" class="form-control" ng-model="comodo.bairro">
-                          </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group label-floating">
+                                                <label class="control-label">Modulos Presentes</label>
+                                                <input type="text" class="form-control" ng-model="comodo.modulos_presentes">
+                                              </div>
                                             </div>
-                                            <div class="col-md-4">
-                          <div class="form-group label-floating">
-                            <label class="control-label">Id Residencia</label>
-                            <input type="email" class="form-control" >
-                          </div>
-                                            </div>
-                                        </div>
-
-
-                                        <button type="submit" class="btn btn-default" >Salvar</button>
+                                          </div>
+                                        <button type="submit" class="btn btn-success" >Salvar</button>
                                         <button type="button" class="btn btn-danger" ng-click="hide()">Cancelar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -57,31 +47,27 @@
                       <h4 class="title">Comodo  </h4>
                 </div>
                 <div class="card-content table-responsive">
-                            <table class="table table-hover">
-                                <thead class="text-warning">
-                                    <th>Cidade</th>
-                                  <th>Bairro</th>
-                                  <th>Rua</th>
-                                  <th>Uf</th>
-                                  <th>Quantidade de Moradores</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                      <td>Prata</td>
-                                      <td>Oliveira</td>
-                                      <td>Rua sao paulo</td>
-                                      <td>MG</td>
-                                      <td>2</td>
-                                    </tr>
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Nome</th>
+                          <th>Modulos Presentes</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="comodo in comodos">
+                                <td>{{comodo.nome}}</td>
+                                <td>{{comodo.modulos_presentes}}</td>
+                                <td><button ng-click="editComodo(comodo)">Edit</button></td>
+                                <td><button ng-click="deleteComodo(comodo)">Delete</button></td>
+                            </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
+                    </tbody>
+                    </table>
+
+              </div>
             </div>
+                  <button type="button" class="btn btn-primary" ng-hide="showAddEditComodo" ng-click="show()"> Novo Comodo</button>
           </div>
-          </div>
+        </div>
       </div>
-
-
     </div>
   </div>

@@ -2,6 +2,7 @@
 
 angular.module('homeon')
   .controller('userCtrl', function($scope, ngNotify, $http, RestSrv, SERVICE_PATH){
+    var userUrl = SERVICE_PATH.PRIVATE_PATH + '/user';
     $scope.user = {};
     $scope.users = [];
     $scope.permissions = [];
@@ -18,11 +19,7 @@ angular.module('homeon')
       $scope.user = {};
     };
 
-    //var permissionUrl = 'http://localhost:8080/api/private/permission';
-
     // Manage CRUD operations.
-  var userUrl = SERVICE_PATH.PRIVATE_PATH + '/user';
-
     $scope.editUser = function(user){
       $scope.user = angular.copy(user);
       $scope.show();
@@ -57,16 +54,16 @@ $scope.saveUser = function(user) {
         });
       }
     };
-    
+
     // Request all data (permission and user).
-    var permissionUrl = SERVICE_PATH.PRIVATE_PATH + '/permission';
+     //var permissionUrl = SERVICE_PATH.PRIVATE_PATH + '/permission';
 
-    RestSrv.find(permissionUrl, function(data) {
-    	scope.permissions = data;
+   //RestSrv.find(permissionUrl, function(data) {
+  	//scope.permissions = data;
 
-  RestSrv.find(url, function(data) {
+  RestSrv.find(userUrl, function(data) {
     $scope.users = data;
     ngNotify.set('Loaded users with success.', 'success');
   		});
-    });
+  //  });
   });

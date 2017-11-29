@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('homeon')
-  .controller('sensorCtrl', function($scope, $http, RestSrv){
-    var url ="http://localhost:8080/api/sensor";
+  .controller('sensorCtrl', function($scope, ngNotify, $http, RestSrv, SERVICE_PATH){
+    var SensorUrl = SERVICE_PATH.PRIVATE_PATH + '/sensor';
 
     $scope.sensor = {};
     $scope.sensores = [];
-    $scope.permissions = [];
     $scope.showAddEditSensor = false;
 
     $scope.show = function(){
@@ -17,28 +16,19 @@ angular.module('homeon')
       $scope.sensor = {};
     };
 
-    var permissionUrl = 'http://localhost:8080/api/permission';
-
-    RestSrv.find(permissionUrl, function(data){
-      $scope.permissions = data;
-      RestSrv.find(url, function(data){
-        $scope.sensores = data;
-      });
-    });
-
     $scope.editSensor = function(sensor){
       $scope.sensor = angular.copy(sensor);
       $scope.show();
     };
     $scope.deleteSensor = function(sensor) {
-    RestSrv.delete('http://localhost:8080/api/private/sensor', sensor, function() {
+    RestSrv.delete(SensorUrl, sensor, function() {
     $scope.sensores.splice($scope.sensor.indexOf(sensor), 1);
   //  ngNotify.set('User \'' + user.name + '\' deleted.', 'success');
 });
 };
     $scope.saveSensor = function(sensor){
       if(sensor.id){
-        RestSrv.edit('http://localhost:8080/api/sensor', sensor, function() {
+        RestSrv.edit(SensorUrl, sensor, function() {
           delete sensor.password;
 
           for (var i = 0; i < $scope.sensores.length; i++) {
@@ -53,18 +43,16 @@ angular.module('homeon')
 
 
       }else {
-        RestSrv.add('http://localhost:8080/api/sensor', sensor, function(newSensor){
+        RestSrv.add(SensorUrl, sensor, function(newSensor){
           $scope.sensores.push(newSensor);
           $scope.hide();
         });
       }
     };
-    RestSrv.find(permissionUrl, function(data) {
-      $scope.permissions = data;
 
-      RestSrv.find(url, function(data) {
+      RestSrv.find(SensorUrl, function(data) {
         $scope.sensores = data;
       //  ngNotify.set('Loaded users with success.', 'success');
       });
-    });
+
   });

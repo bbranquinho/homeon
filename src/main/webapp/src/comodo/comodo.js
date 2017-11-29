@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('homeon')
-  .controller('comodoCtrl', function($scope, $http, RestSrv){
-    var url ="http://localhost:8080/api/private/comodo";
+  .controller('comodoCtrl', function($scope, ngNotify, $http, RestSrv, SERVICE_PATH){
+    var ComodoUrl = SERVICE_PATH.PRIVATE_PATH + '/comodo';
 
     $scope.comodo = {};
     $scope.comodos = [];
@@ -17,28 +17,19 @@ angular.module('homeon')
       $scope.comodo = {};
     };
 
-    var permissionUrl = 'http://localhost:8080/api/private/permission';
-
-    RestSrv.find(permissionUrl, function(data){
-      $scope.permissions = data;
-      RestSrv.find(url, function(data){
-        $scope.comodos = data;
-      });
-    });
-
     $scope.editComodo = function(comodo){
       $scope.comodo = angular.copy(comodo);
       $scope.show();
     };
     $scope.deleteComodo = function(comodo) {
-    RestSrv.delete('http://localhost:8080/api/private/comodo', comodo, function() {
+    RestSrv.delete(ComodoUrl, comodo, function() {
     $scope.comodos.splice($scope.comodos.indexOf(comodo), 1);
   //  ngNotify.set('User \'' + user.name + '\' deleted.', 'success');
 });
 };
 $scope.saveComodo = function(comodo) {
       if (comodo.id) {
-        RestSrv.edit(url, comodo, function() {
+        RestSrv.edit(ComodoUrl, comodo, function() {
           delete comodo.password;
 
           for (var i = 0; i < $scope.comodos.length; i++) {
@@ -51,19 +42,19 @@ $scope.saveComodo = function(comodo) {
           //ngNotify.set('User \'' + comodo.name + '\' updated.', 'success');
         });
       } else {
-        RestSrv.add(url, comodo, function(newSolo) {
+        RestSrv.add(ComodoUrl, comodo, function(newSolo) {
           $scope.comodos.push(newComodo);
           $scope.hide();
         //  ngNotify.set('User \'' + comodo.name + '\' added.', 'success');
         });
       }
     };
-    RestSrv.find(permissionUrl, function(data) {
-      $scope.permissions = data;
+    //RestSrv.find(permissionUrl, function(data) {
+      //$scope.permissions = data;
 
-      RestSrv.find(url, function(data) {
+      RestSrv.find(ComodoUrl, function(data) {
         $scope.comodos = data;
       //  ngNotify.set('Loaded users with success.', 'success');
       });
-    });
+    //});
   });

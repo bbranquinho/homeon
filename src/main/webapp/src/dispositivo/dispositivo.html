@@ -1,45 +1,73 @@
 
+<div class="container">
+    <div class="jumbotron">
+        <div class="content" ng-hide="!showAddEditDsptv">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header" data-background-color="#696969">
+                                <h4 class="title">Dispositivos</h4>
+                            </div>
+                            <div class="card-content">
+                                <form ng-submit="saveDsptv(dsptv)">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Funçao</label>
+                                                <input type="text" class="form-control" ng-model="dsptv.funcao">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Estado</label>
+                                                <input type="text" class="form-control" ng-model="dsptv.estado">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div>
-  <button type="button" ng-hide="showAddEditDsptv" ng-click="show()"> Novo Dispositivo</button>
-  <form ng-submit="saveDsptv(dsptv)" ng-hide="!showAddEditDsptv">
-      <div>
-        <label>Nome</label>
-        <input type="text" placeholder="nome" ng-model="dsptv.name" />
-      </div>
-      <div>
-        <label>Funcao</label>
-        <input type="text" placeholder="funçao" ng-model="dsptv.funcao" />
-      </div>
-      <div>
-        <label>Estado</label>
-        <input type="text" placeholder="estado" ng-model="dsptv.estado" />
-      </div>
 
-      <br />
-      <button type="submit">Salvar</button>
-      <button type="button" ng-click="hide()">Cancelar</button>
+                                    <button type="submit" class="btn btn-success" >Salvar</button>
+                                    <button type="button" class="btn btn-danger" ng-click="hide()">Cancelar</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  </form>
-  <div>
-    <br /><h3>Dispositivos</h3>
-    <table>
-      <thead>
-        <tr>
-          <th> Nome</th>
-          <th> Funcao</th>
-          <th> Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="dsptv in dsptvs">
-          <td>{{ dsptv.name }}</td>
-          <td>{{ dsptv.funcao }}</td>
-          <td>{{ dsptv.estado }}</td>
-          <td><button ng-click="editDsptv(dsptv)">Edit</button></td>
-          <td><button ng-click="deleteDsptv(dsptv)">Delete</button></td>
-      </tbody>
 
-    </table>
-  </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="#696969">
+                            <h4 class="title">Dispositivos </h4>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                <th>Funçao</th>
+                                <th>Estado</th>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="dsptv in dsptvs">
+                                      <td>{{dsptv.funcao}}</td>
+                                      <td>{{dsptv.estado}}</td>
+                                      <td><button ng-click="editDsptv(dsptv)">Edit</button></td>
+                                      <td><button ng-click="deleteDsptv(dsptv)">Delete</button></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-hide="showAddEditDsptv" ng-click="show()"> Novo Dispositivo</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,5 +1,4 @@
 package org.home.on.user;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.home.on.permission.PermissionEntity;
@@ -16,7 +15,7 @@ import java.util.List;
 public class UserEntity extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 201602010251L;
-	
+
 	@NotNull
 	@Size(min = 4, max = 120)
 	@Column(name = "name", length = 120, nullable = false)
@@ -34,6 +33,7 @@ public class UserEntity extends BaseEntity<Long> {
 	@Column(name = "password", length = 80, nullable = false)
 	private String password;
 
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_permission", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "permission_id") )
 	private List<PermissionEntity> permissions;
@@ -41,7 +41,7 @@ public class UserEntity extends BaseEntity<Long> {
 
 	public UserEntity() {
 	}
-	
+
     public UserEntity(String name, String email, String password) {
     	super();
 		this.name = name;
@@ -49,7 +49,8 @@ public class UserEntity extends BaseEntity<Long> {
 		this.password = password;
     }
 
-    public UserEntity(String name) {
+
+	public UserEntity(String name) {
         this.name = name;
     }
 

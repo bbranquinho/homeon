@@ -1,0 +1,25 @@
+# DATABASE
+spring:
+  datasource:
+    url: jdbc:h2:file:./target/homeon;DB_CLOSE_DELAY=-1
+    username: homeon
+    password: homeon
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+# SECURITY
+security:
+  password:
+    secret: secret
+
+# LIQUIBASE
+liquibase:
+  enabled: true
+  change-log: classpath:liquibase/config/master.xml
+  url: jdbc:h2:file:./target/homeon;DB_CLOSE_DELAY=-1
+  user: homeon
+  password: homeon
+

@@ -9,5 +9,9 @@
     <include file="liquibase/config/changelog/20170908214000_permission.xml" />
     <include file="liquibase/config/changelog/20170908214001_user.xml" />
     <include file="liquibase/config/changelog/20170908214002_user_permission.xml" />
-
+    <include file="liquibase/config/changelog/20171002124402_residencia.xml" />
+    <include file="liquibase/config/changelog/20170929014042_comodo.xml" />
+    <include file="liquibase/config/changelog/20170929020443_sensor.xml" />
+    <include file="liquibase/config/changelog/20170929042000_dispositivo.xml" />
 </databaseChangeLog>
+

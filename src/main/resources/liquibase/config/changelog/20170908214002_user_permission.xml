@@ -20,14 +20,12 @@
 	<changeSet id="2" author="caio">
 		<addForeignKeyConstraint baseColumnNames="permission_id"
 			baseTableName="tb_user_permission" constraintName="FK_jnl5o71owccvew9rq2ghyajqa"
-			deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
-			onUpdate="RESTRICT" referencedColumnNames="pk_id"
+			onDelete="CASCADE" onUpdate="RESTRICT" referencedColumnNames="pk_id"
 			referencedTableName="tb_permission" />
 			
 			<addForeignKeyConstraint baseColumnNames="user_id"
 			baseTableName="tb_user_permission" constraintName="FK_1bp29uyvc8krcma384u7qkbrp"
-			deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
-			onUpdate="RESTRICT" referencedColumnNames="pk_id"
+			onDelete="CASCADE" onUpdate="RESTRICT" referencedColumnNames="pk_id"
 			referencedTableName="tb_user" />
 	</changeSet>
 
