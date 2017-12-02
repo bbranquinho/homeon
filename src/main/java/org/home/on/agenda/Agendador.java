@@ -26,10 +26,6 @@ public class Agendador {
         adicionarAgenda(agenda);
     }
 
-    public void agendamento(Long id, String hostname, String comando, Date data, boolean repetir) {
-        adicionarAgenda(new AgendaEntity(id, hostname, comando, data, repetir));
-    }
-
     private void novoAgendamento(AgendaEntity agenda) {
         if (agenda.isRepetir()) {
             Calendar c = Calendar.getInstance();

@@ -7,8 +7,7 @@ spring:
   profiles:
     active: dev
   jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    locale: pt_BR
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
 
 # SERVER
 server:
