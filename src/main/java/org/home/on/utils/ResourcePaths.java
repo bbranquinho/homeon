@@ -36,6 +36,8 @@ public final class ResourcePaths {
     // PUBLIC PATHS
     ///////////////////////////////////////////////////////////////
 
+    public static final String ARDUINO_PATH =  PUBLIC_ROOT_PATH + "/arduino";
+
     public static final String LOGIN_PATH = PUBLIC_ROOT_PATH + "/login";
 
     public static final String LOGOUT_PATH = PUBLIC_ROOT_PATH + "/logout";
