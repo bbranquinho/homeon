@@ -1,7 +1,10 @@
-package org.home.on.arduino;
+package org.home.on.agenda;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Transient;
 import javax.websocket.*;
 import java.net.URI;
 import java.util.*;
@@ -9,6 +12,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class ArduinoConector {
+
+    private static final Logger LOGGER = LogManager.getLogger(ArduinoConector.class);
 
     private Map<String, Conector> conectores = new ConcurrentHashMap();
 
@@ -34,9 +39,11 @@ public class ArduinoConector {
     }
 
     @ClientEndpoint
-    private class Conector {
+    public class Conector {
+        @Transient
         private String hostname;
 
+        @Transient
         private Session sessao;
 
         public Conector(String hostname) {
@@ -54,19 +61,19 @@ public class ArduinoConector {
 
         @OnOpen
         public void onOpen(Session sessao) {
-            System.out.println("sessao aberta");
+            LOGGER.info("sessao aberta");
             this.sessao = sessao;
         }
 
         @OnClose
         public void onClose(Session sessao) {
-            System.out.println("sessao fechada");
+            LOGGER.info("sessao fechada");
             conectores.remove(this);
         }
 
         @OnError
-        public void onError(String erro) {
-            System.out.println("Erro na sessão com o Arudino: " + erro);
+        public void onError(Throwable erro) {
+            LOGGER.error("Erro na sessão com o Arudino: " + erro.getMessage(), erro);
             conectores.remove(this);
         }
 
@@ -79,7 +86,7 @@ public class ArduinoConector {
             try {
                 sessao.getBasicRemote().sendText(mensagem);
             } catch (Exception e) {
-                System.err.println("Erro ao enviar mensagem para o cliente. " + e.getMessage());
+                LOGGER.error("Erro ao enviar mensagem para o cliente. " + e.getMessage(), e);
             }
         }
 

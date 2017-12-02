@@ -6,6 +6,9 @@ spring:
     version: @project.version@
   profiles:
     active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: pt_BR
 
 # SERVER
 server:

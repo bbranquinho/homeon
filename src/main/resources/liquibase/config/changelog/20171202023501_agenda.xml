@@ -24,4 +24,8 @@
           </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="00000000000000" author="caio" dbms="postgresql">
+        <createSequence sequenceName="hibernate_sequence" startValue="1000" incrementBy="1"/>
+    </changeSet>
 </databaseChangeLog>

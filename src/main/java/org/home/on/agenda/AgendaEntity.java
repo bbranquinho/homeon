@@ -1,24 +1,17 @@
-package org.home.on.arduino;
-
-import java.util.Date;
-
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+package org.home.on.agenda;
 
 import org.home.on.utils.BaseEntity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_agenda")
 @AttributeOverride(name = "id", column = @Column(name = "pk_id"))
-public class Agenda extends BaseEntity<Long>{
+public class AgendaEntity extends BaseEntity<Long>{
 
 	 private static final long serialVersionUID = 201602010251L;
-	 
-    @NotNull
-    private Long id;
 
     @NotNull
     @Column(name = "hostname", length = 45, nullable = false)
@@ -36,8 +29,11 @@ public class Agenda extends BaseEntity<Long>{
     @Column(name = "repetir", nullable = false)
     private boolean repetir;
 
-    public Agenda(Long id, String hostname, String comando, Date data, boolean repetir) {
-        this.id = id;
+    public AgendaEntity() {
+    }
+
+    public AgendaEntity(Long id, String hostname, String comando, Date data, boolean repetir) {
+        setId(id);
         this.hostname = hostname;
         this.comando = comando;
         this.data = data;
@@ -76,11 +72,4 @@ public class Agenda extends BaseEntity<Long>{
         this.data = data;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
