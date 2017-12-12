@@ -1,0 +1,89 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="content" ng-hide="!showAddEditAgenda">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="#696969">
+                                <h4 class="title">Agendamentos</h4>
+                            </div>
+                            <div class="card-content">
+                                <form ng-submit="saveAgenda(agenda)">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Hostname</label>
+                                                <input type="text" class="form-control" ng-model="agenda.hostname" placeholder="ws://localhost:8081/websocket">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">comando</label>
+                                                <input type="text" class="form-control" ng-model="agenda.comando" placeholder="L13;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Data</label>
+                                                <input type="text" class="form-control" ng-model="agenda.data" placeholder="2017-12-04T21:52:10.000+0000">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Repetir</label>
+                                                <input type="select" class="form-control" ng-model="agenda.repetir">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-success" >Salvar</button>
+                                    <button type="button" class="btn btn-danger" ng-click="hide()">Cancelar</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="#696969">
+                            <h4 class="title">Agenda </h4>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                <th>Hostname</th>
+                                <th>Comando</th>
+                                <th>Data</th>
+                                <th>Repetir</th>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="agenda in agendas">
+                                      <td>{{agenda.hostname}}</td>
+                                      <td>{{agenda.comando}}</td>
+                                      <td>{{agenda.data}}</td>
+                                      <td>{{agenda.repetir}}</td>
+                                      <td><button ng-click="editAgenda(agenda)">Editar</button></td>
+                                      <td><button ng-click="deleteAgenda(agenda)">Deletar</button></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-hide="showAddEditAgenda" ng-click="show()"> Novo agendamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

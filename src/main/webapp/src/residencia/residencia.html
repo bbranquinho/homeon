@@ -12,7 +12,13 @@
                                 <div class="card-content">
                                     <form ng-submit="saveRsd(rsd)">
                                         <div class="row">
-                                            <div class="col-md-5">
+                                          <div class="col-md-2">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Estado</label>
+                          <input type="text" class="form-control" ng-model="rsd.estado">
+                        </div>
+                                          </div>
+                                            <div class="col-md-3">
                           <div class="form-group label-floating">
                             <label class="control-label">Cidade</label>
                             <input type="text" class="form-control" ng-model="rsd.cidade">
@@ -24,28 +30,24 @@
                             <input type="text" class="form-control" ng-model="rsd.bairro">
                           </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                           <div class="form-group label-floating">
                             <label class="control-label">Rua</label>
-                            <input type="text" class="form-control" >
+                            <input type="text" class="form-control" ng-model="rsd.rua">
                           </div>
                                             </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                           <div class="form-group label-floating">
-                            <label class="control-label">Uf</label>
-                            <input type="text" class="form-control" >
+                            <label class="control-label">Numero</label>
+                            <input type="text" class="form-control" ng-model="rsd.numero">
                           </div>
                                             </div>
-                                            <div class="col-md-6">
-                        <div class="form-group label-floating">
-                          <label class="control-label">Quantidade Morador</label>
-                          <input type="text" class="form-control" ng-model="rsd.qtdmorador">
-                        </div>
-                                          </div>
+                                              <div class="col-md-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Quantidade Morador</label>
+                            <input type="text" class="form-control" ng-model="rsd.qtdmorador">
+                          </div>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-success" >Salvar</button>
                                         <button type="button" class="btn btn-danger" ng-click="hide()">Cancelar</button>
@@ -69,19 +71,21 @@
                         <div class="card-content table-responsive">
                             <table class="table table-hover">
                                 <thead class="text-warning">
+                                  <th>Estado</th>
                                   <th>Cidade</th>
                                   <th>Bairro</th>
                                   <th>Rua</th>
-                                  <th>Uf</th>
+                                  <th>Numero</th>
                                   <th>Quantidade de moradores</th>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="rsd in rsds">
-                                        <td>{{rsd.cidade}}</td>
-                                        <td>{{rsd.bairro}}</td>
-                                        <td>{{rsd.rua}}</td>
-                                        <td>{{rsd.uf}}</td>
-                                        <td>{{rsd.qtdmorador}}</td>
+                                        <td style="text-align:center;">{{rsd.estado}}</td>
+                                        <td style="text-align:center;">{{rsd.cidade}}</td>
+                                        <td style="text-align:center;">{{rsd.bairro}}</td>
+                                        <td style="text-align:center;">{{rsd.rua}}</td>
+                                        <td style="text-align:center;">{{rsd.numero}}</td>
+                                        <td style="text-align:center;">{{rsd.qtdmorador}}</td>
                                         <td><button ng-click="editRsd(rsd)">Edit</button></td>
                                         <td><button ng-click="deleteRsd(rsd)">Delete</button></td>
                                     </tr>

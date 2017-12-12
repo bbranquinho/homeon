@@ -10,17 +10,39 @@
             <column name="pk_id" type="bigint(20)" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false" />
             </column>
+            <column name="estado" type="char(2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cidade" type="varchar(45)">
+                <constraints nullable="true" />
+            </column>            
+            <column name="bairro" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>            
+            <column name="rua" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>                                   
+            <column name="numero" type="INT">
+                <constraints nullable="true" />
+            </column>
             <column name="qtdmorador" type="INT">
                 <constraints nullable="true" />
             </column>
         </createTable>
     </changeSet>
 
-    <changeSet id="2" author="caio">
-        <insert tableName="tb_residencia">
-            <column name="pk_id" value="1" />
-            <column name="qtdmorador" value="2" />
-        </insert>
-    </changeSet>
+  
+	<changeSet id="2" author="caio">
+		<insert tableName="tb_residencia">
+			<column name="pk_id" value="1" />
+			<column name="estado" value="MG" />
+			<column name="cidade" value="Uberlandia" />
+			<column name="bairro" value="Sao Jorge" />
+			<column name="rua" value="wilson cunha" />
+			<column name="numero" value="534" />
+			<column name="qtdmorador" value="3" />
+		</insert>
+	</changeSet>
+  
 
 </databaseChangeLog>

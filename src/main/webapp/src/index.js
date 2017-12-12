@@ -47,8 +47,12 @@ angular.module('homeon', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies',
       templateUrl: 'src/abrirChamado/abrirChamado.html',
       controller: 'chamadoCtrl'
     })
+      .when('/agenda', {
+      templateUrl: 'src/agenda/agenda.html',
+      controller: 'agendaCtrl'
+    })
     .otherwise({
-      redirectTo: '/login'
+      redirectTo: '/'
     });    
   })
   .config(function($httpProvider) {
